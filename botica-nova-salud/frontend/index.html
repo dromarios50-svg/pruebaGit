@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Salud | Gestión de Botica</title>
+  <meta name="description" content="Sistema web de gestión de inventario y ventas de la botica Nova Salud">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Pantalla de inicio de sesión -->
+  <section id="vista-login" class="login" hidden>
+    <form id="form-login" class="login-card" autocomplete="on">
+      <div class="logo-grande" aria-hidden="true">✚</div>
+      <h1>Nova Salud</h1>
+      <p class="muted">Sistema de inventario y ventas</p>
+      <label>Usuario
+        <input name="usuario" required autocomplete="username" autofocus>
+      </label>
+      <label>Contraseña
+        <input name="password" type="password" required autocomplete="current-password">
+      </label>
+      <p id="login-error" class="error" role="alert"></p>
+      <button class="btn btn-primario btn-bloque" type="submit">Ingresar</button>
+      <details class="credenciales">
+        <summary>Usuarios de demostración</summary>
+        <ul>
+          <li><b>admin</b> / admin123 — Administrador</li>
+          <li><b>vendedor</b> / vendedor123 — Caja</li>
+          <li><b>almacen</b> / almacen123 — Almacén</li>
+        </ul>
+      </details>
+    </form>
+  </section>
+
+  <!-- Aplicación -->
+  <div id="vista-app" class="app" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="marca"><span class="logo" aria-hidden="true">✚</span> Nova Salud</div>
+      <nav id="menu" aria-label="Menú principal"></nav>
+      <div class="sidebar-pie">
+        <div id="usuario-actual"></div>
+        <button class="btn btn-fantasma btn-bloque" id="btn-salir" type="button">Cerrar sesión</button>
+      </div>
+    </aside>
+    <div class="contenido">
+      <header class="topbar">
+        <button class="btn-icono menu-movil" id="btn-menu" type="button" aria-label="Abrir menú">☰</button>
+        <h2 id="titulo-vista">Panel</h2>
+        <div class="topbar-acciones">
+          <span id="estado-conexion" class="conexion" title="Actualización en tiempo real">● En vivo</span>
+          <a href="#/alertas" class="campana" title="Alertas de inventario" aria-label="Alertas">🔔<span id="badge-alertas" class="badge" hidden>0</span></a>
+        </div>
+      </header>
+      <main id="vista" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <header>
+        <h3 id="modal-titulo"></h3>
+        <button class="btn-icono" type="button" data-cerrar-modal aria-label="Cerrar">✕</button>
+      </header>
+      <div id="modal-cuerpo"></div>
+    </div>
+  </div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -20,3 +20,7 @@
     git clone -------> (link de repositorio a clonar)
     git pull  (sincroniza con repositorio de GitHub)
 -------------------------------------------------------
+-------------------------------------------------------
+5. Trabajo final: Botica Nova Salud
+    Sistema web de gestión de inventario y ventas (front-end + back-end).
+    Ver botica-nova-salud/README.md para instalarlo y ejecutarlo.
